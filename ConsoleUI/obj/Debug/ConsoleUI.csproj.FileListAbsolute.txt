@@ -1,0 +1,9 @@
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\bin\Debug\ConsoleUI.exe.config
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\bin\Debug\ConsoleUI.exe
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\bin\Debug\ConsoleUI.pdb
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\bin\Debug\BanqueLibrairie.dll
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\bin\Debug\BanqueLibrairie.pdb
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\obj\Debug\ConsoleUI.csprojAssemblyReference.cache
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\obj\Debug\ConsoleUI.csproj.CopyComplete
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\obj\Debug\ConsoleUI.exe
+C:\Users\alexa\source\repos\GestionBanque\ConsoleUI\obj\Debug\ConsoleUI.pdb
