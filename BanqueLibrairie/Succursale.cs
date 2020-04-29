@@ -11,14 +11,15 @@ namespace BanqueLibrairie
         private string noSuccursale;
         private static int compteurSuccursale = 0;
         List<Client> listeDeClient = new List<Client>();
-        
+        List<Compte> listeDeCompte = new List<Compte>();
+
         public Succursale()
         {
 
         }
 
         /// <summary>
-        /// indentifie une succursale avec un numero a 3 chiffre.
+        /// indentifie une succursale avec un numero a 3 chiffres.
         /// </summary>
         /// <returns>string de ce numero</returns>
         public static string GetNumeroSuccursale()
@@ -55,21 +56,24 @@ namespace BanqueLibrairie
         /// <param name="compte"></param>
         public void AjouterUnCompteAuClient(Compte compte)
         {
-            List<Compte> listeCompte = new List<Compte>();
-            foreach (var items in listeCompte)
+            
+            foreach (var items in listeDeCompte)
             {
-                listeCompte.Add(compte);
+                listeDeCompte.Add(compte);
             }
         }
         
-        public void RechercherCompte(string numeroCompte)
+        public void RechercherUnCompte(string numeroCompte)
         {           
             string[] numero = numeroCompte.Split('-');
             if (numero[1]==this.NoSuccursale)
             {
-                foreach (Client item in listeDeClient)
+                foreach (Compte item in listeDeCompte)
                 {
-                    
+                    if (numero[2] == item.NoCompte)
+                    {
+                        Console.WriteLine();
+                    }
                 }                              
             }
         }

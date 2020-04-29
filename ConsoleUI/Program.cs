@@ -24,7 +24,7 @@ namespace ConsoleUI
             succursale1.AjouterUnCompteAuClient(compte1);
             succursale1.AjouterUnCompteAuClient(compte2);
             banque1.DeposerDans("815-001-001");
-            succursale1.RechercherCompte("815-001-001");
+            succursale1.RechercherUnCompte("815-001-001");
             
             compte1.VoirSolde();
             compte1.CompareTo(compte2);
