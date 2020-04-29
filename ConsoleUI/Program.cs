@@ -12,18 +12,20 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
             //Créations des objets
-            Banque banque1 = new Banque("Desjardins", 815);
+            Banque banque1 = new Banque("Desjardins","815");
             Succursale succursale1 = new Succursale("Caisse Desjardin", "300, boulevard des Bois-Francs Sud");
             Client client1 = new Client("Alexandre", "Trudelle", "52 rue fournier", "819-740-7201", "G6S2K9");
-            Compte compte1 = new Compte("12345",0);
-            Compte compte2 = new Compte("3456", 0);
+            Compte compte1 = new Compte("Cheque");
+            Compte compte2 = new Compte("Cheque");
 
             //Met les obejets les un dans les autres
             banque1.AjouterSuccursale(succursale1);
-            succursale1.AjouterClient(client1);
+            succursale1.AjouteUnClient(client1);
             client1.AjouterCompte(compte1);
-            banque1.DeposerArgent(compte1, 500);
-            banque1.DeposerArgent(compte1, 600);
+            client1.AjouterCompte(compte2);
+            banque1.DeposerDans("815-001-001");
+            succursale1.RechercherCompte("815-001-001");
+            
             compte1.VoirSolde();
             compte1.CompareTo(compte2);
             
