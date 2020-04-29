@@ -13,6 +13,9 @@ namespace BanqueLibrairie
         private string noTelephone;
         public string numeroClient;
         public static int compteurClient = 0;
+        public List<Compte> listeDeCompte = new List<Compte>();
+        
+
         public Client()
         {
 
@@ -42,19 +45,35 @@ namespace BanqueLibrairie
             this.Adresse = adresse;
             this.NoTelephone = noTelephone;
             this.CodePostal = codePostal;
-            this.numeroClient = GetNumeroDuClient();
+            this.numeroClient = GetNumeroDuClient();           
         }
 
         /// <summary>
         /// Ajoute un compte au client
         /// </summary>
-        /// <param name="compte">compte du client</param>
-        public void AjouterUncompte(Compte compte)
+        /// <param name="compte"></param>
+        public void AjouterUnCompte(Compte compte)
         {
-            List<Compte> listeDeCompte = new List<Compte>();
             listeDeCompte.Add(compte);
         }
-        
+
+        public void RechercherUnCompte(string numeroCompte)
+        {
+            string[] numero = numeroCompte.Split('-');
+            
+             foreach (Compte compte in listeDeCompte)
+             {
+                if (numero[2]== compte.NoCompte)
+                {
+
+                    _ = compte;
+                }
+             }
+            
+           
+        }
+
+
         public string Prenom
         {
             get { return prenom; }          
@@ -87,5 +106,7 @@ namespace BanqueLibrairie
         {
             get { return numeroClient; }            
         }
+
+       
     }
 }

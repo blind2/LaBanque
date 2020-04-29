@@ -45,6 +45,15 @@ namespace BanqueLibrairie
         {
             return  montantActuel;
         }
+        public void RechercherUnCompte(string numeroCompte)
+        {
+            string[] numero = numeroCompte.Split('-');
+            if (numero[2]==this.NoCompte)
+            {
+
+
+            }
+        }
 
         /// <summary>
         /// Permet de comparer le montant total de 2 compte different

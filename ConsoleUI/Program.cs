@@ -21,10 +21,10 @@ namespace ConsoleUI
             //Met les obejets les un dans les autres
             banque1.AjouterSuccursale(succursale1);
             succursale1.AjouterUnClient(client1);
-            succursale1.AjouterUnCompteAuClient(compte1,client1);
+            client1.RechercherUnCompte("815-001-001-001");
             
             banque1.DeposerDans("815-001-001");
-            succursale1.RechercherUnCompte("815-001-001-001");
+            succursale1.RechercherUnCompte("815-001-001");
 
            
             compte1.VoirSolde();
