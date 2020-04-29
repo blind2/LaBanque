@@ -21,6 +21,7 @@ namespace BanqueLibrairie
            
             return (++compteurCompte).ToString("D3") ;
         }
+        
       
         public Compte()
         {
@@ -42,9 +43,9 @@ namespace BanqueLibrairie
         /// <summary>
         /// Permet de voir le solde du compte
         /// </summary>
-        public void VoirSolde()
+        public long VoirSolde()
         {
-            _ = montantActuel;
+            return  montantActuel;
 
         }
 

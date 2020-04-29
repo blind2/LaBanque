@@ -66,13 +66,13 @@ namespace BanqueLibrairie
         /// Recherche un client grace a son numéro de compte 
         /// </summary>
         /// <param name="numeroCompte">numero de compte du client</param>
-        public void RechercherCompte(string numeroCompte)
+        public void DeposerDans(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
            
-            if (numero[0]==NoInstitution && numero[2]==compte.NoCompte)
+            if (numero[0]==this.NoInstitution)
             {
-
+                
             }
         }
 

@@ -10,6 +10,10 @@ namespace BanqueLibrairie
         private string adresse;
         private string noSuccursale;
         private static int compteurSuccursale = 0;
+        List<Client> listeDeClient = new List<Client>();
+        Client client = new Client();
+
+
         public Succursale()
         {
         }
@@ -38,12 +42,35 @@ namespace BanqueLibrairie
         /// Ajoute un client a une surccursale
         /// </summary>
         /// <param name="cl"></param>
-        public void AjouterClient(Client cl)
+        public void AjouteUnClient(Client cl)
         {
-            List<Client> listeDeClient = new List<Client>();
             foreach (Client client in listeDeClient)
             {
-                listeDeClient.Add(cl);             
+
+                listeDeClient.Add(cl);
+            }
+        }
+        public void AjouteUnCompteAuClient(Compte c)
+        {
+            List<Compte> listeCompte = new List<Compte>();
+            foreach (var item in listeCompte)
+            {
+                listeCompte.Add(c);
+            }
+
+
+
+        }
+        
+        public void RechercherCompte(string numeroCompte)
+        {           
+            string[] numero = numeroCompte.Split('-');
+            if (numero[1]==this.NoSuccursale)
+            {
+                foreach (Client item in listeDeClient)
+                {
+                    
+                }                              
             }
         }
 
