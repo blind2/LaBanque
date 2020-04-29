@@ -13,6 +13,10 @@ namespace BanqueLibrairie
         private string noTelephone;
         public string numeroClient;
         public static int compteurClient = 0;
+        public Client()
+        {
+
+        }
 
         /// <summary>
         /// Donne un numero de 4 chiffres au client
@@ -20,7 +24,7 @@ namespace BanqueLibrairie
         /// <returns>string du numero</returns>
         public static string GetNumeroDuClient()
         {
-            return (++compteurClient).ToString("D4");
+            return (++compteurClient).ToString("D3");
         }
 
         /// <summary>
@@ -40,11 +44,22 @@ namespace BanqueLibrairie
             this.CodePostal = codePostal;
             this.numeroClient = GetNumeroDuClient();
         }
+
+        /// <summary>
+        /// Ajoute un compte au client
+        /// </summary>
+        /// <param name="compte">compte du client</param>
+        public void AjouterUncompte(Compte compte)
+        {
+            List<Compte> listeDeCompte = new List<Compte>();
+            listeDeCompte.Add(compte);
+        }
         
         public string Prenom
         {
             get { return prenom; }          
         }
+
         public string Nom
         {
             get { return nom; }          

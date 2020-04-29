@@ -10,8 +10,7 @@ namespace BanqueLibrairie
         private long montantActuel;
         private string typeCompte;        
         private static int compteurCompte=0;
-       
-
+      
         /// <summary>
         /// Donne un numero de compte a 3 chiffres
         /// </summary>
@@ -21,7 +20,6 @@ namespace BanqueLibrairie
            
             return (++compteurCompte).ToString("D3") ;
         }
-        
       
         public Compte()
         {
@@ -35,7 +33,7 @@ namespace BanqueLibrairie
         public Compte( string typeCompte)
         {
             this.noCompte = GetNumeroCompte();
-            //le montant du compte est de 0$ apres sont ouverture
+            //met le montant du compte à 0$ apres sa création
             this.MontantActuel = 0;
             this.TypeCompte = typeCompte;
         }
@@ -46,7 +44,6 @@ namespace BanqueLibrairie
         public long VoirSolde()
         {
             return  montantActuel;
-
         }
 
         /// <summary>
@@ -61,8 +58,7 @@ namespace BanqueLibrairie
 
         public string NoCompte
         {
-            get { return noCompte; }
-            
+            get { return noCompte; }            
         }
 
         public long MontantActuel
@@ -72,7 +68,7 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Le client peut ouvrir seulement un compte bancaire de type chèque ou épargne.
+        /// Créer un compte banquaire de type cheque ou epargne. Par default il est de type cheque
         /// </summary>
         public string TypeCompte
         {
