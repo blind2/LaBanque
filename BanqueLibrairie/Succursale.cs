@@ -11,8 +11,7 @@ namespace BanqueLibrairie
         private string noSuccursale;
         private static int compteurSuccursale = 0;
         List<Client> listeDeClient = new List<Client>();
-        
-       
+             
         public Succursale()
         {
 
@@ -31,6 +30,7 @@ namespace BanqueLibrairie
         /// Information de base de la surccursale
         /// </summary>
         /// <param name="nom">nom de la surccursale</param>
+        /// <param adresse="adresse">adresse de la surccursale</param>
         public Succursale(string nom, string adresse)
         {
             this.nom = nom;
@@ -38,19 +38,29 @@ namespace BanqueLibrairie
             this.noSuccursale = GetNumeroSuccursale();
         }
 
+        /// <summary>
+        /// Ajoute un client a la succursale
+        /// </summary>
+        /// <param name="client">le client à ajouter</param>
         public void AjouterUnClient(Client client)
         {
-            listeDeClient.Add(client);
-            foreach (Client items in listeDeClient)
-            {
-
-            }
-        }      
+            listeDeClient.Add(client);         
+        }  
         
-        public void RechercherUnCompte(string numeroCompte)
-        {           
-           
-                      
+        /// <summary>
+        /// Recherche un client avec son numero de client
+        /// </summary>
+        /// <param name="numeroClient">numero du client de 3 chiffres</param>
+        public void RechercherUnClient(string numeroClient)
+        {
+            string[] numero = numeroClient.Split('-');
+            foreach (Client client in listeDeClient)
+            {
+                if (numero[3]== client.numeroClient)
+                {
+                    _ = client;
+                }
+            }
         }
 
         public string Nom

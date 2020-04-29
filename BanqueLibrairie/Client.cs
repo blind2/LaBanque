@@ -57,6 +57,10 @@ namespace BanqueLibrairie
             listeDeCompte.Add(compte);
         }
 
+        /// <summary>
+        /// Reecherche un compte avec le numero de compte du client
+        /// </summary>
+        /// <param name="numeroCompte">numero de compte du client à 3 chiffres</param>
         public void RechercherUnCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
@@ -65,14 +69,10 @@ namespace BanqueLibrairie
              {
                 if (numero[2]== compte.NoCompte)
                 {
-
                     _ = compte;
                 }
-             }
-            
-           
+             }                      
         }
-
 
         public string Prenom
         {
@@ -105,8 +105,6 @@ namespace BanqueLibrairie
         public string NumeroClient
         {
             get { return numeroClient; }            
-        }
-
-       
+        }      
     }
 }
