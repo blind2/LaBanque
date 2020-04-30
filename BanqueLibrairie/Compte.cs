@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BanqueLibrairie
 {
@@ -8,29 +6,28 @@ namespace BanqueLibrairie
     {
         private string noCompte;
         private long montantActuel;
-        private string typeCompte;        
-        private static int compteurCompte=0;
-      
+        private string typeCompte;
+        private static int compteurCompte = 0;
+
         /// <summary>
         /// Donne un numero de compte a 3 chiffres
         /// </summary>
         /// <returns>le string du compteur</returns>
         public static string GetNumeroCompte()
         {
-           
-            return (++compteurCompte).ToString("D3") ;
+            return (++compteurCompte).ToString("D3");
         }
-      
+
         public Compte()
         {
 
         }
 
-       /// <summary>
-       /// Information de base sur le compte
-       /// </summary>
-       /// <param name="typeCompte">Cheque ou epargne</param>
-        public Compte( string typeCompte)
+        /// <summary>
+        /// Information de base sur le compte
+        /// </summary>
+        /// <param name="typeCompte">Cheque ou epargne</param>
+        public Compte(string typeCompte)
         {
             this.noCompte = GetNumeroCompte();
             //met le montant du compte à 0$ apres sa création
@@ -39,20 +36,12 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Permet de voir le solde du compte
+        /// Permet de voire le solde du compte
         /// </summary>
-        public long VoirSolde()
+        /// <returns>le montant actuel du compte</returns>
+        public long VoireLeSoldeDuCompte()
         {
-            return  montantActuel;
-        }
-        public void RechercherUnCompte(string numeroCompte)
-        {
-            string[] numero = numeroCompte.Split('-');
-            if (numero[2]==this.NoCompte)
-            {
-
-
-            }
+            return montantActuel;
         }
 
         /// <summary>
@@ -67,7 +56,7 @@ namespace BanqueLibrairie
 
         public string NoCompte
         {
-            get { return noCompte; }            
+            get { return noCompte; }
         }
 
         public long MontantActuel

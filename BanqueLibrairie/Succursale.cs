@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace BanqueLibrairie
 {
@@ -11,7 +9,7 @@ namespace BanqueLibrairie
         private string noSuccursale;
         private static int compteurSuccursale = 0;
         List<Client> listeDeClient = new List<Client>();
-             
+
         public Succursale()
         {
 
@@ -44,9 +42,9 @@ namespace BanqueLibrairie
         /// <param name="client">le client à ajouter</param>
         public void AjouterUnClient(Client client)
         {
-            listeDeClient.Add(client);         
-        }  
-        
+            listeDeClient.Add(client);
+        }
+
         /// <summary>
         /// Recherche un client avec son numero de client
         /// </summary>
@@ -56,7 +54,7 @@ namespace BanqueLibrairie
             string[] numero = numeroClient.Split('-');
             foreach (Client client in listeDeClient)
             {
-                if (numero[3]== client.numeroClient)
+                if (numero[3] == client.numeroClient)
                 {
                     _ = client;
                 }

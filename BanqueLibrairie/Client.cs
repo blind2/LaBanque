@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace BanqueLibrairie
 {
@@ -14,7 +12,7 @@ namespace BanqueLibrairie
         public string numeroClient;
         public static int compteurClient = 0;
         public List<Compte> listeDeCompte = new List<Compte>();
-        
+
 
         public Client()
         {
@@ -39,13 +37,13 @@ namespace BanqueLibrairie
         /// <param name="noTelephone">numero de téléphone du client</param>
         /// <param name="codePostal">code postal du client</param>
         public Client(string prenom, string nom, string adresse, string noTelephone, string codePostal)
-        {          
+        {
             this.prenom = prenom;
             this.nom = nom;
             this.Adresse = adresse;
             this.NoTelephone = noTelephone;
             this.CodePostal = codePostal;
-            this.numeroClient = GetNumeroDuClient();           
+            this.numeroClient = GetNumeroDuClient();
         }
 
         /// <summary>
@@ -64,24 +62,24 @@ namespace BanqueLibrairie
         public void RechercherUnCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
-            
-             foreach (Compte compte in listeDeCompte)
-             {
-                if (numero[2]== compte.NoCompte)
+
+            foreach (Compte compte in listeDeCompte)
+            {
+                if (numero[2] == compte.NoCompte)
                 {
                     _ = compte;
                 }
-             }                      
+            }
         }
 
         public string Prenom
         {
-            get { return prenom; }          
+            get { return prenom; }
         }
 
         public string Nom
         {
-            get { return nom; }          
+            get { return nom; }
         }
 
         public string Adresse
@@ -99,12 +97,12 @@ namespace BanqueLibrairie
         public string CodePostal
         {
             get { return codePostal; }
-            set { codePostal= value; }
+            set { codePostal = value; }
         }
 
         public string NumeroClient
         {
-            get { return numeroClient; }            
-        }      
+            get { return numeroClient; }
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace BanqueLibrairie
 {
@@ -7,12 +6,8 @@ namespace BanqueLibrairie
     {
         private string nom;
         private string noInstitution;
+        List<Succursale> listeDeSuccursale = new List<Succursale>();
         Compte compte = new Compte();
-        
-        public Banque()
-        {
-
-        }
 
         /// <summary>
         /// Information de base de la banque
@@ -21,7 +16,7 @@ namespace BanqueLibrairie
         public Banque(string nom, string noInstitution)
         {
             this.nom = nom;
-            this.noInstitution = noInstitution;          
+            this.noInstitution = noInstitution;
         }
 
         /// <summary>
@@ -29,61 +24,44 @@ namespace BanqueLibrairie
         /// </summary>
         public void AjouterSuccursale(Succursale s)
         {
-            List<Succursale> listeDeSuccursale = new List<Succursale>();
-            
-            foreach (Succursale succursale in listeDeSuccursale)
+            listeDeSuccursale.Add(s);
+        }
+
+        public void RechercherUneSuccursale(string numeroSuccursale)
+        {
+            string[] numero = numeroSuccursale.Split('-');
+
+            if (numero[0] == this.NoInstitution)
             {
-                listeDeSuccursale.Add(s);
-            }      
-        }
-
-        /// <summary>
-        /// Dépose de l'argent dans le compte du client
-        /// </summary>
-        /// <param name="c">le compte du client</param>
-        /// <param name="montant"> le montant a ajouter au solde</param>
-        public void DeposerArgent(Compte c, long montant)
-        {
-            compte = c;
-            long nouveauMontant = c.MontantActuel + montant;
-            c.MontantActuel = nouveauMontant;
-           
-        }
-
-        /// <summary>
-        /// Retire de l'argent du compte du client
-        /// </summary>
-        /// <param name="c">le compte du client</param>
-        /// <param name="montant"> montant a soustraire du solde</param>
-        public void RetirerArgent(Compte c, long montant)
-        {
-            compte = c;
-            long nouveauMontant = c.MontantActuel - montant;
-            c.MontantActuel = nouveauMontant;
-        }
-
-        /// <summary>
-        /// Recherche un client grace a son numéro de compte 
-        /// </summary>
-        /// <param name="numeroCompte">numero de compte du client</param>
-        public void DeposerDans(string numeroCompte)
-        {
-            string[] numero = numeroCompte.Split('-');
-           
-            if (numero[0]==this.NoInstitution)
-            {
-                
+                foreach (Succursale succursale in listeDeSuccursale)
+                {
+                    if (numero[1] == succursale.NoSuccursale)
+                    {
+                        _ = succursale;
+                    }
+                }
             }
+
+        }
+
+       
+        public void DeposerDans(long montant)
+        {
+           
+        }
+        public void RetirerDans()
+        {
+
         }
 
         public string Nom
         {
-            get { return nom; }            
+            get { return nom; }
         }
 
         public string NoInstitution
         {
-            get { return noInstitution; }            
-        }    
+            get { return noInstitution; }
+        }
     }
 }
