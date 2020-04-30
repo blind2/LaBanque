@@ -44,14 +44,40 @@ namespace BanqueLibrairie
 
         }
 
-       
-        public void DeposerDans(long montant)
+        /// <summary>
+        /// Dépose de l'argent dans le compte du client
+        /// </summary>
+        /// <param name="c">le compte du client</param>
+        /// <param name="montant"> le montant a ajouter au solde</param>
+        public void DeposerArgent(Compte c, long montant)
         {
-           
-        }
-        public void RetirerDans()
-        {
+            compte = c;
+            long nouveauMontant = c.MontantActuel + montant;
+            c.MontantActuel = nouveauMontant;
 
+        }
+
+        /// <summary>
+        /// Retire de l'argent du compte du client
+        /// </summary>
+        /// <param name="c">le compte du client</param>
+        /// <param name="montant"> montant a soustraire du solde</param>
+        public void RetirerArgent(Compte c, long montant)
+        {
+            compte = c;
+            long nouveauMontant = c.MontantActuel - montant;
+            c.MontantActuel = nouveauMontant;
+        }
+
+       
+        public void DeposerDans(string numeroCompte)
+        {
+            string[] numero = numeroCompte.Split('-');
+
+            if (numero[0] == this.NoInstitution)
+            {
+
+            }
         }
 
         public string Nom

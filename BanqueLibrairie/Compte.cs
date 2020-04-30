@@ -36,12 +36,29 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Permet de voire le solde du compte
+        /// Permet de voir le solde du compte
         /// </summary>
-        /// <returns>le montant actuel du compte</returns>
-        public long VoireLeSoldeDuCompte()
+        /// <param name="numeroCompte">numero du compte</param>
+        /// <returns>montant actuel</returns>
+        public long VoireLeSoldeDuCompte(string numeroCompte)
         {
-            return montantActuel;
+            string[] numero = numeroCompte.Split('-');
+            if (numero[2]==this.noCompte)
+            {
+                return montantActuel;
+            }
+            return 0;           
+        }
+
+        public long Deposer(long montant)
+        {
+            long nouveauMontant = this.MontantActuel + montant;
+            return this.MontantActuel+montant;
+        }
+
+        public void Retirer(long montant)
+        {
+            
         }
 
         /// <summary>
