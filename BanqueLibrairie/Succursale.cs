@@ -10,11 +10,6 @@ namespace BanqueLibrairie
         private static int compteurSuccursale = 0;
         List<Client> listeDeClient = new List<Client>();
 
-        public Succursale()
-        {
-
-        }
-
         /// <summary>
         /// indentifie une succursale avec un numero a 3 chiffres.
         /// </summary>

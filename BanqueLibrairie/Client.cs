@@ -13,12 +13,6 @@ namespace BanqueLibrairie
         public static int compteurClient = 0;
         public List<Compte> listeDeCompte = new List<Compte>();
 
-
-        public Client()
-        {
-
-        }
-
         /// <summary>
         /// Donne un numero de 4 chiffres au client
         /// </summary>

@@ -7,15 +7,14 @@ namespace BanqueLibrairie
         private string nom;
         private string noInstitution;
         List<Succursale> listeDeSuccursale = new List<Succursale>();
-        Compte compte = new Compte();
-
+        
         /// <summary>
         /// Information de base de la banque
         /// </summary>
         /// <param name="nom">nom de la banque</param>
-        public Banque(string nom, string noInstitution)
+        public Banque( string noInstitution)
         {
-            this.nom = nom;
+            this.Nom = nom;
             this.noInstitution = noInstitution;
         }
 
@@ -41,48 +40,22 @@ namespace BanqueLibrairie
                     }
                 }
             }
-
-        }
-
-        /// <summary>
-        /// Dépose de l'argent dans le compte du client
-        /// </summary>
-        /// <param name="c">le compte du client</param>
-        /// <param name="montant"> le montant a ajouter au solde</param>
-        public void DeposerArgent(Compte c, long montant)
-        {
-            compte = c;
-            long nouveauMontant = c.MontantActuel + montant;
-            c.MontantActuel = nouveauMontant;
-
-        }
-
-        /// <summary>
-        /// Retire de l'argent du compte du client
-        /// </summary>
-        /// <param name="c">le compte du client</param>
-        /// <param name="montant"> montant a soustraire du solde</param>
-        public void RetirerArgent(Compte c, long montant)
-        {
-            compte = c;
-            long nouveauMontant = c.MontantActuel - montant;
-            c.MontantActuel = nouveauMontant;
-        }
-
-       
-        public void DeposerDans(string numeroCompte)
-        {
-            string[] numero = numeroCompte.Split('-');
-
-            if (numero[0] == this.NoInstitution)
-            {
-
-            }
         }
 
         public string Nom
         {
             get { return nom; }
+            set
+            {
+                if (noInstitution == "815")
+                {
+                    nom = "Dejardin";
+                }
+                else
+                {
+                    nom = "non definie";
+                }
+            }
         }
 
         public string NoInstitution

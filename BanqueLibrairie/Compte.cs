@@ -18,11 +18,6 @@ namespace BanqueLibrairie
             return (++compteurCompte).ToString("D3");
         }
 
-        public Compte()
-        {
-
-        }
-
         /// <summary>
         /// Information de base sur le compte
         /// </summary>
@@ -52,8 +47,9 @@ namespace BanqueLibrairie
 
         public long Deposer(long montant)
         {
-            long nouveauMontant = this.MontantActuel + montant;
-            return this.MontantActuel+montant;
+            long nouveauMontant = this.montantActuel + montant;
+            nouveauMontant = MontantActuel;
+            return montantActuel;   
         }
 
         public void Retirer(long montant)
