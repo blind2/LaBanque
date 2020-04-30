@@ -6,15 +6,15 @@ namespace BanqueLibrairie
     {
         private string nom;
         private string noInstitution;
-        List<Succursale> listeDeSuccursale = new List<Succursale>();
-        
+        private List<Succursale> listeDeSuccursale = new List<Succursale>();
+
         /// <summary>
         /// Information de base de la banque
         /// </summary>
         /// <param name="nom">nom de la banque</param>
-        public Banque( string noInstitution)
+        public Banque(string nom, string noInstitution)
         {
-            this.Nom = nom;
+            this.nom = nom;
             this.noInstitution = noInstitution;
         }
 
@@ -26,6 +26,10 @@ namespace BanqueLibrairie
             listeDeSuccursale.Add(s);
         }
 
+        /// <summary>
+        /// Recherche une succursale de la banque
+        /// </summary>
+        /// <param name="numeroSuccursale">numero à 3 chiffres que contient la succursale</param>
         public void RechercherUneSuccursale(string numeroSuccursale)
         {
             string[] numero = numeroSuccursale.Split('-');
@@ -45,17 +49,6 @@ namespace BanqueLibrairie
         public string Nom
         {
             get { return nom; }
-            set
-            {
-                if (noInstitution == "815")
-                {
-                    nom = "Dejardin";
-                }
-                else
-                {
-                    nom = "non definie";
-                }
-            }
         }
 
         public string NoInstitution

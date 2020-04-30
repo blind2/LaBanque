@@ -8,7 +8,7 @@ namespace BanqueLibrairie
         private string adresse;
         private string noSuccursale;
         private static int compteurSuccursale = 0;
-        List<Client> listeDeClient = new List<Client>();
+        private List<Client> listeDeClient = new List<Client>();
 
         /// <summary>
         /// indentifie une succursale avec un numero a 3 chiffres.

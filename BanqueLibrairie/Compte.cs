@@ -35,30 +35,41 @@ namespace BanqueLibrairie
         /// </summary>
         /// <param name="numeroCompte">numero du compte</param>
         /// <returns>montant actuel</returns>
-        public long VoireLeSoldeDuCompte(string numeroCompte)
+        public void VoireLeSoldeDuCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
-            if (numero[2]==this.noCompte)
+            if (numero[2] == this.noCompte)
             {
-                return montantActuel;
+                _ = montantActuel;
             }
-            return 0;           
         }
 
+        /// <summary>
+        /// Depose un montant d'argent dans le compte du client
+        /// </summary>
+        /// <param name="montant"></param>
+        /// <returns>le montant actuel</returns>
         public long Deposer(long montant)
         {
             long nouveauMontant = this.montantActuel + montant;
             nouveauMontant = MontantActuel;
-            return montantActuel;   
-        }
-
-        public void Retirer(long montant)
-        {
-            
+            return montantActuel;
         }
 
         /// <summary>
-        /// Permet de comparer le montant total de 2 compte different
+        /// Retire un montant dans le compte du client
+        /// </summary>
+        /// <param name="montant">montant d'argent</param>
+        /// <returns>le montant actuel</returns>
+        public long Retirer(long montant)
+        {
+            long nouveauMontant = this.montantActuel - montant;
+            nouveauMontant = MontantActuel;
+            return montantActuel;
+        }
+
+        /// <summary>
+        /// Permet de comparer le montant total de 2 comptes different
         /// </summary>
         /// <param name="other">compte a comparer</param>
         /// <returns> retourne un int</returns>
