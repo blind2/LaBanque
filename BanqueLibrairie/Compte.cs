@@ -8,7 +8,8 @@ namespace BanqueLibrairie
         private long montantActuel;
         private string typeCompte;
         private static int compteurCompte = 0;
-        
+
+        //Instance pour la class Banque
         public Compte() { }
 
         /// <summary>

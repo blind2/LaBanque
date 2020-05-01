@@ -13,8 +13,9 @@ namespace BanqueLibrairie
         public static int compteurClient = 0;
         private List<Compte> listeDeCompte = new List<Compte>();
 
+        //Instance pour la class Banque
         public Client() { }
-             
+
         /// <summary>
         /// Donne un numero de 3 chiffres au client
         /// </summary>

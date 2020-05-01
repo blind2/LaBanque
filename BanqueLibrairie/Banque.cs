@@ -10,7 +10,7 @@ namespace BanqueLibrairie
         string numeroCompteVerifier;
         Compte compte = new Compte();
         Client client = new Client();
-        
+
 
         /// <summary>
         /// Information de base de la banque
@@ -50,13 +50,13 @@ namespace BanqueLibrairie
             client = c;
             numeroCompteVerifier = numeroCompte;
             string[] numero = numeroCompte.Split('-');
-            foreach (Compte item in c.ListDeCompte )
+            foreach (Compte item in c.ListDeCompte)
             {
                 if (numero[2] == item.NoCompte)
                 {
                     compte = item;
                     return true;
-                    
+
                 }
             }
             return false;
@@ -69,12 +69,12 @@ namespace BanqueLibrairie
         /// <returns>le solde du compte</returns>
         public long Deposer(long montant)
         {
-            if (TrouverUnCompte(client,numeroCompteVerifier)==true)
+            if (TrouverUnCompte(client, numeroCompteVerifier) == true)
             {
                 compte.MontantActuel += montant;
-                return compte.MontantActuel;               
+                return compte.MontantActuel;
             }
-            return compte.MontantActuel;            
+            return compte.MontantActuel;
         }
 
         /// <summary>

@@ -31,14 +31,15 @@ namespace BanqueLibrairie
             this.noSuccursale = GetNumeroSuccursale();
         }
 
-       /// <summary>
-       /// Supprime un client de la succursale
-       /// </summary>
-       /// <param name="client">le client à supprimer</param>
+        /// <summary>
+        /// Supprime un client de la succursale
+        /// </summary>
+        /// <param name="client">le client à supprimer</param>
         public void SupprimerUnclient(Client client)
         {
             listeDeClient.Remove(client);
         }
+
         /// <summary>
         /// Ajoute un client a la succursale
         /// </summary>
