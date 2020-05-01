@@ -8,6 +8,8 @@ namespace BanqueLibrairie
         private long montantActuel;
         private string typeCompte;
         private static int compteurCompte = 0;
+        
+        public Compte() { }
 
         /// <summary>
         /// Donne un numero de compte a 3 chiffres
@@ -35,37 +37,14 @@ namespace BanqueLibrairie
         /// </summary>
         /// <param name="numeroCompte">numero du compte</param>
         /// <returns>montant actuel</returns>
-        public void VoireLeSoldeDuCompte(string numeroCompte)
+        public long VoireLeSoldeDuCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
             if (numero[2] == this.noCompte)
             {
-                _ = montantActuel;
+                return montantActuel;
             }
-        }
-
-        /// <summary>
-        /// Depose un montant d'argent dans le compte du client
-        /// </summary>
-        /// <param name="montant"></param>
-        /// <returns>le montant actuel</returns>
-        public long Deposer(long montant)
-        {
-            long nouveauMontant = this.montantActuel + montant;
-            nouveauMontant = MontantActuel;
-            return montantActuel;
-        }
-
-        /// <summary>
-        /// Retire un montant dans le compte du client
-        /// </summary>
-        /// <param name="montant">montant d'argent</param>
-        /// <returns>le montant actuel</returns>
-        public long Retirer(long montant)
-        {
-            long nouveauMontant = this.montantActuel - montant;
-            nouveauMontant = MontantActuel;
-            return montantActuel;
+            return 0;
         }
 
         /// <summary>

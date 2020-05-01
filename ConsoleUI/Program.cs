@@ -12,11 +12,13 @@ namespace ConsoleUI
             Compte compte1 = new Compte("Cheque");
             Compte compte2 = new Compte("epargne");
 
-            banque1.AjouterSuccursale(succursale1);
+            banque1.AjouterUneSuccursale(succursale1);
             succursale1.AjouterUnClient(client1);
             client1.AjouterUnCompte(compte1);
-            client1.RechercherUnCompte("815-001-001-001");
-            compte1.Deposer(500);
+            banque1.TrouverUnCompte(client1,"815-001-001");
+            banque1.Deposer(500);
+
+         
         }
     }
 }

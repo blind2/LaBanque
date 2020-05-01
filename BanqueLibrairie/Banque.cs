@@ -7,6 +7,8 @@ namespace BanqueLibrairie
         private string nom;
         private string noInstitution;
         private List<Succursale> listeDeSuccursale = new List<Succursale>();
+        Compte compte = new Compte();
+        
 
         /// <summary>
         /// Information de base de la banque
@@ -19,18 +21,61 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
+        /// Supprime une succursale de la banque
+        /// </summary>
+        /// <param name="s">succursale a supprimer</param>
+        public void SupprimerUneSuccursale(Succursale s)
+        {
+            listeDeSuccursale.Remove(s);
+        }
+
+        /// <summary>
         /// Ajoute une succursale a la banque
         /// </summary>
-        public void AjouterSuccursale(Succursale s)
+        public void AjouterUneSuccursale(Succursale s)
         {
             listeDeSuccursale.Add(s);
+        }
+
+        /// <summary>
+        /// Rechercher un compte avec un numéro de compte
+        /// </summary>
+        /// <param name="numeroCompte">numero a 9 chiffres</param>
+        /// <param name="c">le client</param>
+        /// <returns>retourne vrai ou faux s'il a trouvée un compte</returns>
+        public bool TrouverUnCompte(Client c, string numeroCompte)
+        {
+            
+            string[] numero = numeroCompte.Split('-');
+            foreach (Compte item in c.ListDeCompte )
+            {
+                if (numero[2] == item.NoCompte)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+      
+        public long Deposer(long montant)
+        {
+        
+            long nouveauMontant = compte.MontantActuel + montant;
+            nouveauMontant = compte.MontantActuel;
+            return nouveauMontant;
+        }
+       
+        public long Retirer(string numeroCompte, long montant)
+        {
+            return 0;
+            
         }
 
         /// <summary>
         /// Recherche une succursale de la banque
         /// </summary>
         /// <param name="numeroSuccursale">numero à 3 chiffres que contient la succursale</param>
-        public void RechercherUneSuccursale(string numeroSuccursale)
+        public Succursale RechercherUneSuccursale(string numeroSuccursale)
         {
             string[] numero = numeroSuccursale.Split('-');
 
@@ -40,10 +85,11 @@ namespace BanqueLibrairie
                 {
                     if (numero[1] == succursale.NoSuccursale)
                     {
-                        _ = succursale;
+                        return succursale;
                     }
                 }
             }
+            return null;
         }
 
         public string Nom

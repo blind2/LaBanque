@@ -11,10 +11,12 @@ namespace BanqueLibrairie
         private string noTelephone;
         public string numeroClient;
         public static int compteurClient = 0;
-        public List<Compte> listeDeCompte = new List<Compte>();
+        private List<Compte> listeDeCompte = new List<Compte>();
 
+        public Client() { }
+             
         /// <summary>
-        /// Donne un numero de 4 chiffres au client
+        /// Donne un numero de 3 chiffres au client
         /// </summary>
         /// <returns>string du numero</returns>
         public static string GetNumeroDuClient()
@@ -49,23 +51,6 @@ namespace BanqueLibrairie
             listeDeCompte.Add(compte);
         }
 
-        /// <summary>
-        /// Reecherche un compte avec le numero de compte du client
-        /// </summary>
-        /// <param name="numeroCompte">numero de compte du client à 3 chiffres</param>
-        public void RechercherUnCompte(string numeroCompte)
-        {
-            string[] numero = numeroCompte.Split('-');
-
-            foreach (Compte compte in listeDeCompte)
-            {
-                if (numero[2] == compte.NoCompte)
-                {
-                    _ = compte;
-                }
-            }
-        }
-
         public string Prenom
         {
             get { return prenom; }
@@ -97,6 +82,11 @@ namespace BanqueLibrairie
         public string NumeroClient
         {
             get { return numeroClient; }
+        }
+
+        public List<Compte> ListDeCompte
+        {
+            get { return listeDeCompte; }
         }
     }
 }

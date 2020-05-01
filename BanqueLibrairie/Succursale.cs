@@ -31,6 +31,14 @@ namespace BanqueLibrairie
             this.noSuccursale = GetNumeroSuccursale();
         }
 
+       /// <summary>
+       /// Supprime un client de la succursale
+       /// </summary>
+       /// <param name="client">le client à supprimer</param>
+        public void SupprimerUnclient(Client client)
+        {
+            listeDeClient.Remove(client);
+        }
         /// <summary>
         /// Ajoute un client a la succursale
         /// </summary>
@@ -44,16 +52,17 @@ namespace BanqueLibrairie
         /// Recherche un client avec son numero de client
         /// </summary>
         /// <param name="numeroClient">numero du client de 3 chiffres</param>
-        public void RechercherUnClient(string numeroClient)
+        public Client RechercherUnClient(string numeroClient)
         {
             string[] numero = numeroClient.Split('-');
             foreach (Client client in listeDeClient)
             {
                 if (numero[3] == client.numeroClient)
                 {
-                    _ = client;
+                    return client;
                 }
             }
+            return null;
         }
 
         public string Nom
