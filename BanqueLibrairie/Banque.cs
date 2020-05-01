@@ -7,7 +7,9 @@ namespace BanqueLibrairie
         private string nom;
         private string noInstitution;
         private List<Succursale> listeDeSuccursale = new List<Succursale>();
+        string numeroCompteVerifier;
         Compte compte = new Compte();
+        Client client = new Client();
         
 
         /// <summary>
@@ -45,30 +47,49 @@ namespace BanqueLibrairie
         /// <returns>retourne vrai ou faux s'il a trouvée un compte</returns>
         public bool TrouverUnCompte(Client c, string numeroCompte)
         {
-            
+            client = c;
+            numeroCompteVerifier = numeroCompte;
             string[] numero = numeroCompte.Split('-');
             foreach (Compte item in c.ListDeCompte )
             {
                 if (numero[2] == item.NoCompte)
                 {
+                    compte = item;
                     return true;
+                    
                 }
             }
             return false;
         }
-      
+
+        /// <summary>
+        /// Dépose de l'argent dans un compte
+        /// </summary>
+        /// <param name="montant">montant a déposer</param>
+        /// <returns>le solde du compte</returns>
         public long Deposer(long montant)
         {
-        
-            long nouveauMontant = compte.MontantActuel + montant;
-            nouveauMontant = compte.MontantActuel;
-            return nouveauMontant;
+            if (TrouverUnCompte(client,numeroCompteVerifier)==true)
+            {
+                compte.MontantActuel += montant;
+                return compte.MontantActuel;               
+            }
+            return compte.MontantActuel;            
         }
-       
-        public long Retirer(string numeroCompte, long montant)
+
+        /// <summary>
+        /// Retire de l'argent dans un compte
+        /// </summary>
+        /// <param name="montant">montant à retirer</param>
+        /// <returns>le solde du compte</returns>
+        public long Retirer(long montant)
         {
-            return 0;
-            
+            if (TrouverUnCompte(client, numeroCompteVerifier) == true)
+            {
+                compte.MontantActuel -= montant;
+                return compte.MontantActuel;
+            }
+            return compte.MontantActuel;
         }
 
         /// <summary>

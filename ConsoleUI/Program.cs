@@ -15,8 +15,9 @@ namespace ConsoleUI
             banque1.AjouterUneSuccursale(succursale1);
             succursale1.AjouterUnClient(client1);
             client1.AjouterUnCompte(compte1);
-            banque1.TrouverUnCompte(client1,"815-001-001");
+            banque1.TrouverUnCompte(client1,"815-001-009");
             banque1.Deposer(500);
+            banque1.Retirer(100);
 
          
         }
