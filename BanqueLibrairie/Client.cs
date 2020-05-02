@@ -51,6 +51,28 @@ namespace BanqueLibrairie
         {
             listeDeCompte.Add(compte);
         }
+        /// <summary>
+        /// Supprime un compte du client
+        /// </summary>
+        /// <param name="compte">compte a supprimer</param>
+        public void SupprimerUnCompte(Compte compte)
+        {
+            listeDeCompte.Remove(compte);
+        }
+
+        public long DeposerDans(string numeroCompte, long montant)
+        {
+            string[] numero = numeroCompte.Split('-');
+            foreach (Compte item in this.listeDeCompte)
+            {
+                if (numero[2]==item.NoCompte)
+                {
+                    item.MontantActuel += montant;
+                    return item.MontantActuel;
+                }
+            }
+            return 0;
+        }
 
         public string Prenom
         {
