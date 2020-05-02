@@ -22,8 +22,7 @@ namespace ConsoleUI
             banque1.Deposer(500);
             banque1.Retirer(100);
             client1.DeposerDans("815-001-001-001", 100);
-
-
+            client1.VoireLeSoldeDuCompte("815-001-001-001");
         }
     }
 }

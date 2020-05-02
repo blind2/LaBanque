@@ -74,7 +74,7 @@ namespace BanqueLibrairie
                 compte.MontantActuel += montant;
                 return compte.MontantActuel;
             }
-            return compte.MontantActuel;
+            return montant;
         }
 
         /// <summary>
@@ -89,7 +89,7 @@ namespace BanqueLibrairie
                 compte.MontantActuel -= montant;
                 return compte.MontantActuel;
             }
-            return compte.MontantActuel;
+            return montant;
         }
 
         /// <summary>

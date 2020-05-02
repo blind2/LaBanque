@@ -34,21 +34,6 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Permet de voir le solde du compte
-        /// </summary>
-        /// <param name="numeroCompte">numero du compte</param>
-        /// <returns>montant actuel</returns>
-        public long VoireLeSoldeDuCompte(string numeroCompte)
-        {
-            string[] numero = numeroCompte.Split('-');
-            if (numero[2] == this.noCompte)
-            {
-                return montantActuel;
-            }
-            return 0;
-        }
-
-        /// <summary>
         /// Permet de comparer le montant total de 2 comptes different
         /// </summary>
         /// <param name="other">compte a comparer</param>
@@ -70,7 +55,7 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Créer un compte banquaire de type cheque ou epargne. Par default il est de type cheque
+        /// Créer un compte de banque de type cheque ou epargne. Par default il est de type cheque
         /// </summary>
         public string TypeCompte
         {

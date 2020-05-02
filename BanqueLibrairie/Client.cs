@@ -60,6 +60,12 @@ namespace BanqueLibrairie
             listeDeCompte.Remove(compte);
         }
 
+        /// <summary>
+        /// Depose le montant désiré
+        /// </summary>
+        /// <param name="numeroCompte">compte ue l'on veut deéposer de l'argent</param>
+        /// <param name="montant">montant à déposée</param>
+        /// <returns></returns>
         public long DeposerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
@@ -70,6 +76,43 @@ namespace BanqueLibrairie
                     item.MontantActuel += montant;
                     return item.MontantActuel;
                 }
+            }
+            //return le montant car la transaction est refusé
+            return montant;
+        }
+
+        /// <summary>
+        /// Retire dans le compte désiré
+        /// </summary>
+        /// <param name="numeroCompte">compte que on veut retirer de l'argent</param>
+        /// <param name="montant">montant a retirer</param>
+        /// <returns></returns>
+        public long RetirerDans(string numeroCompte, long montant)
+        {
+            string[] numero = numeroCompte.Split('-');
+            foreach (Compte item in this.listeDeCompte)
+            {
+                if (numero[2] == item.NoCompte)
+                {
+                    item.MontantActuel -= montant;
+                    return item.MontantActuel;
+                }
+            }
+            return montant;
+        }
+
+        /// <summary>
+        /// Permet de voir le solde du compte
+        /// </summary>
+        /// <param name="numeroCompte">compte du client</param>
+        /// <returns>retourne le montant du compte et 0 si le compte n'a pas été trouvée</returns>
+        public long VoireLeSoldeDuCompte(string numeroCompte)
+        {
+            string[] numero = numeroCompte.Split('-');
+            foreach(Compte item in this.listeDeCompte)
+            if (numero[2] == item.NoCompte)
+            {
+                return item.MontantActuel;
             }
             return 0;
         }
