@@ -71,14 +71,13 @@ namespace BanqueLibrairie
             string[] numero = numeroCompte.Split('-');
             foreach (Compte item in this.listeDeCompte)
             {
-                if (numero[2]==item.NoCompte)
+                if (numero[2] == item.NoCompte)
                 {
                     item.MontantActuel += montant;
                     return item.MontantActuel;
                 }
             }
-            //return le montant car la transaction est refusé
-            return montant;
+            return 0;
         }
 
         /// <summary>
@@ -94,11 +93,11 @@ namespace BanqueLibrairie
             {
                 if (numero[2] == item.NoCompte)
                 {
-                    item.MontantActuel -= montant;
+                    item.MontantActuel -= -montant;
                     return item.MontantActuel;
                 }
             }
-            return montant;
+            return 0;
         }
 
         /// <summary>
@@ -109,13 +108,14 @@ namespace BanqueLibrairie
         public long VoireLeSoldeDuCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
-            foreach(Compte item in this.listeDeCompte)
-            if (numero[2] == item.NoCompte)
-            {
-                return item.MontantActuel;
-            }
+            foreach (Compte item in this.listeDeCompte)
+                if (numero[2] == item.NoCompte)
+                {
+                    return item.MontantActuel;
+                }
             return 0;
         }
+
 
         public string Prenom
         {

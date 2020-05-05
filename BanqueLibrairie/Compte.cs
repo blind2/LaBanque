@@ -32,6 +32,7 @@ namespace BanqueLibrairie
             this.MontantActuel = 0;
             this.TypeCompte = typeCompte;
         }
+     
 
         /// <summary>
         /// Permet de comparer le montant total de 2 comptes different

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanqueLibrairie", "BanqueLibrairie\BanqueLibrairie.csproj", "{24004E71-ACBA-4B7E-9099-A2D1FEA31AFC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BanqueLibrairie", "BanqueLibrairie\BanqueLibrairie.csproj", "{24004E71-ACBA-4B7E-9099-A2D1FEA31AFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{2DFDFF21-C850-4CC8-BDD9-D1FB23814083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanqueLibrairieTests", "BanqueLibrairieTests\BanqueLibrairieTests.csproj", "{9724F797-0515-4E4F-9D6B-F8763822A4F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2DFDFF21-C850-4CC8-BDD9-D1FB23814083}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2DFDFF21-C850-4CC8-BDD9-D1FB23814083}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2DFDFF21-C850-4CC8-BDD9-D1FB23814083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9724F797-0515-4E4F-9D6B-F8763822A4F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9724F797-0515-4E4F-9D6B-F8763822A4F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9724F797-0515-4E4F-9D6B-F8763822A4F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9724F797-0515-4E4F-9D6B-F8763822A4F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

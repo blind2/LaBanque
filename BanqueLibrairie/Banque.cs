@@ -38,7 +38,7 @@ namespace BanqueLibrairie
         {
             listeDeSuccursale.Add(s);
         }
-
+       
         /// <summary>
         /// Rechercher un compte avec un numéro de compte
         /// </summary>
@@ -56,7 +56,6 @@ namespace BanqueLibrairie
                 {
                     compte = item;
                     return true;
-
                 }
             }
             return false;
@@ -74,7 +73,7 @@ namespace BanqueLibrairie
                 compte.MontantActuel += montant;
                 return compte.MontantActuel;
             }
-            return montant;
+            return 0;
         }
 
         /// <summary>
@@ -89,7 +88,7 @@ namespace BanqueLibrairie
                 compte.MontantActuel -= montant;
                 return compte.MontantActuel;
             }
-            return montant;
+            return 0;
         }
 
         /// <summary>
