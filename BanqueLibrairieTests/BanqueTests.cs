@@ -16,16 +16,16 @@ namespace BanqueLibrairieTests
             //Arrange
             long expected = 500;
             long montantDeposer = 100;
-            
+
             var banque = new BanqueLibrairie.Banque("test", "815");
 
             //Acte
-            long solde =banque.Deposer(montantDeposer);
+            long solde = banque.DeposerDans(montantDeposer);
 
             //assert
-            Assert.AreEqual(expected,solde);
-           
+            Assert.AreEqual(expected, solde);
+
         }
-       
+
     }
 }

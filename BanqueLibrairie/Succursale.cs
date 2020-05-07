@@ -49,18 +49,50 @@ namespace BanqueLibrairie
             listeDeClient.Add(client);
         }
 
+        public long DeposerDans(string numeroCompte, long montant)
+        {
+            string[] numero = numeroCompte.Split('-');
+            if (numero[1] == this.noSuccursale)
+            {
+                foreach (Client client in listeDeClient)
+                {
+                    if (numero[3] == client.numeroClient)
+                    {
+                        client.DeposerDans(numeroCompte, montant);
+                    }
+                }
+            }
+            return 0;
+        }
+
+        public long RetirerDans(string numeroCompte, long montant)
+        {
+            string[] numero = numeroCompte.Split('-');
+            if (numero[1] == this.noSuccursale)
+            {
+                foreach (Client client in listeDeClient)
+                {
+                    if (numero[3] == client.numeroClient)
+                    {
+                        client.RetirerDans(numeroCompte, montant);
+                    }
+                }
+            }
+            return 0;
+        }
+
         /// <summary>
         /// Recherche un client avec son numero de client
         /// </summary>
-        /// <param name="numeroClient">numero du client de 3 chiffres</param>
-        public Client RechercherUnClient(string numeroClient)
+        /// <param name="numeroCompte">numero du compte</param>
+        public Client TrouverUnClient(string numeroCompte)
         {
-            string[] numero = numeroClient.Split('-');
+            string[] numero = numeroCompte.Split('-');
             foreach (Client client in listeDeClient)
             {
                 if (numero[3] == client.numeroClient)
                 {
-                    return client;
+                    client.TrouverUnCompte(numeroCompte);
                 }
             }
             return null;

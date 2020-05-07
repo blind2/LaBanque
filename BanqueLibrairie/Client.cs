@@ -13,9 +13,6 @@ namespace BanqueLibrairie
         public static int compteurClient = 0;
         private List<Compte> listeDeCompte = new List<Compte>();
 
-        //Instance pour la class Banque
-        public Client() { }
-
         /// <summary>
         /// Donne un numero de 3 chiffres au client
         /// </summary>
@@ -69,12 +66,11 @@ namespace BanqueLibrairie
         public long DeposerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
-            foreach (Compte item in this.listeDeCompte)
+            foreach (Compte compte in this.listeDeCompte)
             {
-                if (numero[2] == item.NoCompte)
+                if (numero[2] == compte.NoCompte)
                 {
-                    item.MontantActuel += montant;
-                    return item.MontantActuel;
+                    compte.Deposer(montant);
                 }
             }
             return 0;
@@ -89,12 +85,11 @@ namespace BanqueLibrairie
         public long RetirerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
-            foreach (Compte item in this.listeDeCompte)
+            foreach (Compte compte in this.listeDeCompte)
             {
-                if (numero[2] == item.NoCompte)
+                if (numero[2] == compte.NoCompte)
                 {
-                    item.MontantActuel -= -montant;
-                    return item.MontantActuel;
+                    compte.Retirer(montant);
                 }
             }
             return 0;
@@ -109,13 +104,35 @@ namespace BanqueLibrairie
         {
             string[] numero = numeroCompte.Split('-');
             foreach (Compte item in this.listeDeCompte)
+            {
                 if (numero[2] == item.NoCompte)
                 {
                     return item.MontantActuel;
                 }
+            }
             return 0;
         }
 
+        /// <summary>
+        /// Trouve un compte avec le numero de compte du client
+        /// </summary>
+        /// <param name="numeroCompte">numero de compte</param>
+        /// <returns>retourne un compte ou rien</returns>
+        public Compte TrouverUnCompte(string numeroCompte)
+        {
+            string[] numero = numeroCompte.Split('-');
+            if (numero[3] == this.numeroClient)
+            {
+                foreach (Compte compte in listeDeCompte)
+                {
+                    if (numero[2] == compte.NoCompte)
+                    {
+                        return compte;
+                    }
+                }
+            }
+            return null;
+        }
 
         public string Prenom
         {
@@ -148,11 +165,6 @@ namespace BanqueLibrairie
         public string NumeroClient
         {
             get { return numeroClient; }
-        }
-
-        public List<Compte> ListDeCompte
-        {
-            get { return listeDeCompte; }
         }
     }
 }

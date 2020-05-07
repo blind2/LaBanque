@@ -15,12 +15,14 @@ namespace ConsoleUI
             Compte compte1 = new Compte("Cheque");
             Compte compte2 = new Compte("epargne");
 
+
             banque1.AjouterUneSuccursale(succursale1);
             succursale1.AjouterUnClient(client1);
             client1.AjouterUnCompte(compte1);
-            banque1.TrouverUnCompte(client1, "815-001-001-001");
-            banque1.Deposer(500);
-            banque1.Retirer(100);
+
+            banque1.TrouverUnCompte("815-001-001-001");
+            banque1.DeposerDans("815-001-001-001", 500);
+            banque1.RetirerDans("815-001-001-001", 100);
             client1.DeposerDans("815-001-001-001", 100);
             client1.VoireLeSoldeDuCompte("815-001-001-001");
         }

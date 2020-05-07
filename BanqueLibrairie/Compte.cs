@@ -9,9 +9,6 @@ namespace BanqueLibrairie
         private string typeCompte;
         private static int compteurCompte = 0;
 
-        //Instance pour la class Banque
-        public Compte() { }
-
         /// <summary>
         /// Donne un numero de compte a 3 chiffres
         /// </summary>
@@ -29,10 +26,21 @@ namespace BanqueLibrairie
         {
             this.noCompte = GetNumeroCompte();
             //met le montant du compte à 0$ apres sa création
-            this.MontantActuel = 0;
+            this.montantActuel = 0;
             this.TypeCompte = typeCompte;
         }
-     
+
+        public long Deposer(long montant)
+        {
+            montantActuel += montant;
+            return montantActuel;
+        }
+
+        public long Retirer(long montant)
+        {
+            montantActuel -= montant;
+            return montantActuel;
+        }
 
         /// <summary>
         /// Permet de comparer le montant total de 2 comptes different
@@ -52,7 +60,7 @@ namespace BanqueLibrairie
         public long MontantActuel
         {
             get { return montantActuel; }
-            set { montantActuel = value; }
+
         }
 
         /// <summary>

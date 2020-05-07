@@ -1,0 +1,8 @@
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\bin\Release\netstandard2.0\BanqueLibrairie.deps.json
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\bin\Release\netstandard2.0\BanqueLibrairie.dll
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\bin\Release\netstandard2.0\BanqueLibrairie.pdb
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\obj\Release\netstandard2.0\BanqueLibrairie.csprojAssemblyReference.cache
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\obj\Release\netstandard2.0\BanqueLibrairie.AssemblyInfoInputs.cache
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\obj\Release\netstandard2.0\BanqueLibrairie.AssemblyInfo.cs
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\obj\Release\netstandard2.0\BanqueLibrairie.dll
+C:\Users\alexa\source\repos\GestionBanque\BanqueLibrairie\obj\Release\netstandard2.0\BanqueLibrairie.pdb

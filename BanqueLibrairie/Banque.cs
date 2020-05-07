@@ -7,10 +7,6 @@ namespace BanqueLibrairie
         private string nom;
         private string noInstitution;
         private List<Succursale> listeDeSuccursale = new List<Succursale>();
-        string numeroCompteVerifier;
-        Compte compte = new Compte();
-        Client client = new Client();
-
 
         /// <summary>
         /// Information de base de la banque
@@ -38,78 +34,59 @@ namespace BanqueLibrairie
         {
             listeDeSuccursale.Add(s);
         }
-       
+
         /// <summary>
-        /// Rechercher un compte avec un numéro de compte
+        /// Trouve un compte avec le numero du compte
         /// </summary>
-        /// <param name="numeroCompte">numero a 9 chiffres</param>
-        /// <param name="c">le client</param>
-        /// <returns>retourne vrai ou faux s'il a trouvée un compte</returns>
-        public bool TrouverUnCompte(Client c, string numeroCompte)
+        /// <param name="numeroCompte">numero de compte</param>
+        /// <returns>retourne un compte ou null s'il ne trouve pas de compte</returns>
+        public Compte TrouverUnCompte(string numeroCompte)
         {
-            client = c;
-            numeroCompteVerifier = numeroCompte;
             string[] numero = numeroCompte.Split('-');
-            foreach (Compte item in c.ListDeCompte)
-            {
-                if (numero[2] == item.NoCompte)
-                {
-                    compte = item;
-                    return true;
-                }
-            }
-            return false;
-        }
 
-        /// <summary>
-        /// Dépose de l'argent dans un compte
-        /// </summary>
-        /// <param name="montant">montant a déposer</param>
-        /// <returns>le solde du compte</returns>
-        public long Deposer(long montant)
-        {
-            if (TrouverUnCompte(client, numeroCompteVerifier) == true)
-            {
-                compte.MontantActuel += montant;
-                return compte.MontantActuel;
-            }
-            return 0;
-        }
-
-        /// <summary>
-        /// Retire de l'argent dans un compte
-        /// </summary>
-        /// <param name="montant">montant à retirer</param>
-        /// <returns>le solde du compte</returns>
-        public long Retirer(long montant)
-        {
-            if (TrouverUnCompte(client, numeroCompteVerifier) == true)
-            {
-                compte.MontantActuel -= montant;
-                return compte.MontantActuel;
-            }
-            return 0;
-        }
-
-        /// <summary>
-        /// Recherche une succursale de la banque
-        /// </summary>
-        /// <param name="numeroSuccursale">numero à 3 chiffres que contient la succursale</param>
-        public Succursale RechercherUneSuccursale(string numeroSuccursale)
-        {
-            string[] numero = numeroSuccursale.Split('-');
-
-            if (numero[0] == this.NoInstitution)
+            if (numero[0] == this.noInstitution)
             {
                 foreach (Succursale succursale in listeDeSuccursale)
                 {
                     if (numero[1] == succursale.NoSuccursale)
                     {
-                        return succursale;
+                        succursale.TrouverUnClient(numeroCompte);
                     }
                 }
             }
             return null;
+        }
+
+        public long DeposerDans(string numeroCompte, long montant)
+        {
+            string[] numero = numeroCompte.Split('-');
+            if (numero[0] == noInstitution)
+            {
+                foreach (Succursale succursale in listeDeSuccursale)
+                {
+                    if (numero[1] == succursale.NoSuccursale)
+                    {
+                        succursale.DeposerDans(numeroCompte, montant);
+                    }
+                }
+            }
+            return 0;
+        }
+
+        public long RetirerDans(string numeroCompte, long montant)
+        {
+            string[] numero = numeroCompte.Split('-');
+            if (numero[0] == noInstitution)
+            {
+                foreach (Succursale succursale in listeDeSuccursale)
+                {
+                    if (numero[1] == succursale.NoSuccursale)
+                    {
+                        succursale.RetirerDans(numeroCompte, montant);
+                    }
+                }
+            }
+            return 0;
         }
 
         public string Nom
