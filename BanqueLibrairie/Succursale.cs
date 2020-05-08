@@ -49,6 +49,12 @@ namespace BanqueLibrairie
             listeDeClient.Add(client);
         }
 
+        /// <summary>
+        /// Depose dans le compte du client
+        /// </summary>
+        /// <param name="numeroCompte">numero de compte du client</param>
+        /// <param name="montant">montant à déposer</param>
+        /// <returns>retourne le solde du compte ou 0 s'il n'a pas trouvée de compte/returns>
         public long DeposerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
@@ -64,7 +70,13 @@ namespace BanqueLibrairie
             }
             return 0;
         }
-
+  
+        /// <summary>
+        /// Retire dans un compte
+        /// </summary>
+        /// <param name="numeroCompte">numero de compte</param>
+        /// <param name="montant">montant d'argent à retirer</param>
+        /// <returns>retourne le solde du compte ou 0 s'il n'a pas trouvée de compte </returns>
         public long RetirerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
@@ -81,20 +93,24 @@ namespace BanqueLibrairie
             return 0;
         }
 
-        /// <summary>
-        /// Recherche un client avec son numero de client
-        /// </summary>
-        /// <param name="numeroCompte">numero du compte</param>
+       /// <summary>
+       /// Trouve un compte avec un numéro de compte
+       /// </summary>
+       /// <param name="numeroCompte">numéro de compte</param>
+       /// <returns>retourne un compte ou null s'il ne trouve pas de compte</returns>
         public Client TrouverUnClient(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
-            foreach (Client client in listeDeClient)
+            if (numero[1]==this.noSuccursale)
             {
-                if (numero[3] == client.numeroClient)
+                foreach (Client client in listeDeClient)
                 {
-                    client.TrouverUnCompte(numeroCompte);
+                    if (numero[3] == client.numeroClient)
+                    {
+                        client.TrouverUnCompte(numeroCompte);
+                    }
                 }
-            }
+            }           
             return null;
         }
 

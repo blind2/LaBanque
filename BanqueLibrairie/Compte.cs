@@ -30,12 +30,22 @@ namespace BanqueLibrairie
             this.TypeCompte = typeCompte;
         }
 
+        /// <summary>
+        /// Dépose un montant dans un compte
+        /// </summary>
+        /// <param name="montant">monatant d'argent à déposer</param>
+        /// <returns>retourne le solde du compte</returns>
         public long Deposer(long montant)
         {
             montantActuel += montant;
             return montantActuel;
         }
 
+        /// <summary>
+        /// Retire un montant dans un compte
+        /// </summary>
+        /// <param name="montant">montant à retirer</param>
+        /// <returns>retourne le solde du compte</returns>
         public long Retirer(long montant)
         {
             montantActuel -= montant;

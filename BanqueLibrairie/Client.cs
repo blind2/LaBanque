@@ -2,7 +2,7 @@
 
 namespace BanqueLibrairie
 {
-    public class Client
+    public abstract class Client
     {
         private string prenom;
         private string nom;
@@ -48,8 +48,9 @@ namespace BanqueLibrairie
         {
             listeDeCompte.Add(compte);
         }
+
         /// <summary>
-        /// Supprime un compte du client
+        /// Supprime un compte
         /// </summary>
         /// <param name="compte">compte a supprimer</param>
         public void SupprimerUnCompte(Compte compte)
@@ -58,11 +59,11 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Depose le montant désiré
+        /// Dépose un montant dans le compte
         /// </summary>
-        /// <param name="numeroCompte">compte ue l'on veut deéposer de l'argent</param>
+        /// <param name="numeroCompte">numéro de compte/param>
         /// <param name="montant">montant à déposée</param>
-        /// <returns></returns>
+        /// <returns>retourne le solde du compte ou 0 s'il n'a pas trouvée de compte</returns>
         public long DeposerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
@@ -77,11 +78,11 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Retire dans le compte désiré
+        /// Retire le montant dans le compte 
         /// </summary>
-        /// <param name="numeroCompte">compte que on veut retirer de l'argent</param>
+        /// <param name="numeroCompte">numéro de compte</param>
         /// <param name="montant">montant a retirer</param>
-        /// <returns></returns>
+        /// <returns>retourne le solde du compte ou 0 s'il n'a pas trouvée de compte</returns>
         public long RetirerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
@@ -98,8 +99,8 @@ namespace BanqueLibrairie
         /// <summary>
         /// Permet de voir le solde du compte
         /// </summary>
-        /// <param name="numeroCompte">compte du client</param>
-        /// <returns>retourne le montant du compte et 0 si le compte n'a pas été trouvée</returns>
+        /// <param name="numeroCompte">numéro de compte/param>
+        /// <returns>retourne le montant du compte ou 0 si le compte n'a pas été trouvée</returns>
         public long VoireLeSoldeDuCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
@@ -114,10 +115,10 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Trouve un compte avec le numero de compte du client
+        /// Trouve un compte avec un numéro de compte
         /// </summary>
         /// <param name="numeroCompte">numero de compte</param>
-        /// <returns>retourne un compte ou rien</returns>
+        /// <returns>retourne un compte ou null si le compte n'a pas été trouvée</returns>
         public Compte TrouverUnCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
@@ -134,6 +135,8 @@ namespace BanqueLibrairie
             return null;
         }
 
+        public abstract void PrendreUnRendezVous();
+        
         public string Prenom
         {
             get { return prenom; }

@@ -36,7 +36,7 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Trouve un compte avec le numero du compte
+        /// Trouve un compte avec un numéro de compte
         /// </summary>
         /// <param name="numeroCompte">numero de compte</param>
         /// <returns>retourne un compte ou null s'il ne trouve pas de compte</returns>
@@ -57,6 +57,12 @@ namespace BanqueLibrairie
             return null;
         }
 
+        /// <summary>
+        /// Dépose un montant dans un compte
+        /// </summary>
+        /// <param name="numeroCompte">numéro de compte</param>
+        /// <param name="montant">montant à déposer</param>
+        /// <returns>retourne le solde du compte ou 0 s'il ne trouve pas de compte</returns>
         public long DeposerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
@@ -73,6 +79,12 @@ namespace BanqueLibrairie
             return 0;
         }
 
+        /// <summary>
+        /// Retire un montant dans un compte
+        /// </summary>
+        /// <param name="numeroCompte">numéro de compte</param>
+        /// <param name="montant">montant à retirer</param>
+        /// <returns>retourne le solde ou 0 s'il ne trouve pas de compte</returns>
         public long RetirerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
