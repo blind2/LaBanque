@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BanqueLibrairie", "BanqueLi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleUI", "ConsoleUI\ConsoleUI.csproj", "{2DFDFF21-C850-4CC8-BDD9-D1FB23814083}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BanqueLibrairieTests", "BanqueLibrairieTests\BanqueLibrairieTests.csproj", "{9724F797-0515-4E4F-9D6B-F8763822A4F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BanqueLibrairieTests", "BanqueLibrairieTests\BanqueLibrairieTests.csproj", "{9724F797-0515-4E4F-9D6B-F8763822A4F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
