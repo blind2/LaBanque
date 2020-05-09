@@ -2,7 +2,7 @@
 
 namespace BanqueLibrairie
 {
-    public class Banque
+    public class Banque 
     {
         private string nom;
         private string noInstitution;

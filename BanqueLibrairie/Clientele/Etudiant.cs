@@ -21,7 +21,7 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Fait un pret a la Banuqe
+        /// Fait un pret a la Banque
         /// </summary>
         /// <param name="numeroCompte">numero de compte de l'étudiant</param>
         /// <param name="montant">montant du pret</param>
