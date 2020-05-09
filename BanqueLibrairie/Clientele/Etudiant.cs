@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace BanqueLibrairie
+namespace BanqueLibrairie.Clientele
 {
     public class Etudiant : Client
     {       

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BanqueLibrairie
+namespace BanqueLibrairie.Clientele
 {
     public abstract class Client
     {

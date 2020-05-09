@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using BanqueLibrairie.Clientele;
+using System.Collections.Generic;
 
 namespace BanqueLibrairie
 {
