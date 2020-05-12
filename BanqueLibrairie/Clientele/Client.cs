@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace BanqueLibrairie
+namespace BanqueLibrairie.Clientele
 {
-    public class Client
+    public abstract class Client
     {
         private string prenom;
         private string nom;
@@ -12,9 +12,6 @@ namespace BanqueLibrairie
         public string numeroClient;
         public static int compteurClient = 0;
         private List<Compte> listeDeCompte = new List<Compte>();
-
-        //Instance pour la class Banque
-        public Client() { }
 
         /// <summary>
         /// Donne un numero de 3 chiffres au client
@@ -51,8 +48,9 @@ namespace BanqueLibrairie
         {
             listeDeCompte.Add(compte);
         }
+
         /// <summary>
-        /// Supprime un compte du client
+        /// Supprime un compte
         /// </summary>
         /// <param name="compte">compte a supprimer</param>
         public void SupprimerUnCompte(Compte compte)
@@ -61,62 +59,84 @@ namespace BanqueLibrairie
         }
 
         /// <summary>
-        /// Depose le montant désiré
+        /// Dépose un montant dans le compte
         /// </summary>
-        /// <param name="numeroCompte">compte ue l'on veut deéposer de l'argent</param>
+        /// <param name="numeroCompte">numéro de compte/param>
         /// <param name="montant">montant à déposée</param>
-        /// <returns></returns>
+        /// <returns>retourne le solde du compte ou 0 s'il n'a pas trouvée de compte</returns>
         public long DeposerDans(string numeroCompte, long montant)
         {
             string[] numero = numeroCompte.Split('-');
-            foreach (Compte item in this.listeDeCompte)
+            foreach (Compte compte in this.listeDeCompte)
             {
-                if (numero[2]==item.NoCompte)
+                if (numero[2] == compte.NoCompte)
                 {
-                    item.MontantActuel += montant;
-                    return item.MontantActuel;
+                    compte.Deposer(montant);
                 }
             }
-            //return le montant car la transaction est refusé
-            return montant;
+            return 0;
         }
 
         /// <summary>
-        /// Retire dans le compte désiré
+        /// Retire le montant dans le compte 
         /// </summary>
-        /// <param name="numeroCompte">compte que on veut retirer de l'argent</param>
+        /// <param name="numeroCompte">numéro de compte</param>
         /// <param name="montant">montant a retirer</param>
-        /// <returns></returns>
+        /// <returns>retourne le solde du compte ou 0 s'il n'a pas trouvée de compte</returns>
         public long RetirerDans(string numeroCompte, long montant)
+        {
+            string[] numero = numeroCompte.Split('-');
+            foreach (Compte compte in this.listeDeCompte)
+            {
+                if (numero[2] == compte.NoCompte)
+                {
+                    compte.Retirer(montant);
+                }
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// Permet de voir le solde du compte
+        /// </summary>
+        /// <param name="numeroCompte">numéro de compte/param>
+        /// <returns>retourne le montant du compte ou 0 si le compte n'a pas été trouvée</returns>
+        public long VoireLeSoldeDuCompte(string numeroCompte)
         {
             string[] numero = numeroCompte.Split('-');
             foreach (Compte item in this.listeDeCompte)
             {
                 if (numero[2] == item.NoCompte)
                 {
-                    item.MontantActuel -= montant;
                     return item.MontantActuel;
                 }
-            }
-            return montant;
-        }
-
-        /// <summary>
-        /// Permet de voir le solde du compte
-        /// </summary>
-        /// <param name="numeroCompte">compte du client</param>
-        /// <returns>retourne le montant du compte et 0 si le compte n'a pas été trouvée</returns>
-        public long VoireLeSoldeDuCompte(string numeroCompte)
-        {
-            string[] numero = numeroCompte.Split('-');
-            foreach(Compte item in this.listeDeCompte)
-            if (numero[2] == item.NoCompte)
-            {
-                return item.MontantActuel;
             }
             return 0;
         }
 
+        /// <summary>
+        /// Trouve un compte avec un numéro de compte
+        /// </summary>
+        /// <param name="numeroCompte">numero de compte</param>
+        /// <returns>retourne un compte ou null si le compte n'a pas été trouvée</returns>
+        public Compte TrouverUnCompte(string numeroCompte)
+        {
+            string[] numero = numeroCompte.Split('-');
+            if (numero[3] == this.numeroClient)
+            {
+                foreach (Compte compte in listeDeCompte)
+                {
+                    if (numero[2] == compte.NoCompte)
+                    {
+                        return compte;
+                    }
+                }
+            }
+            return null;
+        }
+
+        public abstract void PrendreUnRendezVous();
+        
         public string Prenom
         {
             get { return prenom; }
@@ -148,11 +168,6 @@ namespace BanqueLibrairie
         public string NumeroClient
         {
             get { return numeroClient; }
-        }
-
-        public List<Compte> ListDeCompte
-        {
-            get { return listeDeCompte; }
         }
     }
 }

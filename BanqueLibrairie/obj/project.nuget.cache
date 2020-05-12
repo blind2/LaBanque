@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "gnFN5P9QdFcpEu9gOTbIM86OaICk8FrgsGiVhv3qcB4bmnkKg8qE8eEbwgsarJ+uhJBDTeVjGvQv5KEL9PkwVQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\alexa\\source\\repos\\GestionBanque\\BanqueLibrairie\\BanqueLibrairie.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\alexa\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\alexa\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
