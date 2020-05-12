@@ -1,4 +1,5 @@
 ﻿using BanqueLibrairie;
+using BanqueLibrairie.Clientele;
 
 namespace ConsoleUI
 {
@@ -21,8 +22,7 @@ namespace ConsoleUI
 
             banque1.TrouverUnCompte("815-001-001-001");
             banque1.DeposerDans("815-001-001-001", 500);
-            banque1.RetirerDans("815-001-001-001", 100);
-            etudiant1.DeposerDans("815-001-001-001", 100);
+            banque1.RetirerDans("815-001-001-001", 100);           
             etudiant1.FaireUnPretEtudiant("815-001-001-001", 5000);
             etudiant1.VoireLeSoldeDuCompte("815-001-001-001");
         }
